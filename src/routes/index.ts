@@ -1,0 +1,25 @@
+import { createBrowserRouter } from 'react-router';
+import Home from '../pages/home/Home';
+import Login from '../pages/auth/Login';
+import AuthLayout from '../components/layout/AuthLayout';
+import DashboardLayout from '../components/layout/DashboardLayout';
+import FlatPage from '../pages/flats/FlatPage';
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        Component: DashboardLayout,
+        children: [
+            { index: true, Component: Home },
+            { path: "flats", Component: FlatPage },
+        ]
+    },
+    {
+        Component: AuthLayout,
+        children: [
+            { index: true, Component: Login, path: "/login" },
+        ]
+    },
+]);
+
+export default router;
