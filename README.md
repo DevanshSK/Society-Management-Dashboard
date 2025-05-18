@@ -55,8 +55,21 @@ This project aims to centralize and digitize all critical data for a residential
 
 ## 🌐 Live Demo
 
-You can access the live deployed version of the project here:  
-🔗 **[Live Site](https://your-deployment-link.com)**
+You can access the live deployed version of the project here:
+<br />
+
+🔗 **[Live Site](https://society-management-dashboard.vercel.app/)**
+
+Admin Credentials: 
+
+Email: `admin@gmail.com`
+
+
+Password `admin123`
+<br />
+
+
+
 
 
 ---
