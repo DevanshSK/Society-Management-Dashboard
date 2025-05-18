@@ -5,23 +5,27 @@ import Navbar from "../dashboard/navbar/Navbar";
 import useFlatStore from "../../store/useFlatStore";
 import { useEffect } from "react";
 import useVehicleStore from "../../store/useVehicleStore";
+import useMaintenanceStore from "../../store/useMaintainenceStore";
 
 const DashboardLayout = () => {
     const { isAuthenticated } = useAuthStore();
     const { loadFlats, resetFlats } = useFlatStore();
     const {loadVehicles, resetVehicles} = useVehicleStore();
+    const { loadMaintenances, resetMaintenances } = useMaintenanceStore();
 
     useEffect(() => {
         if(isAuthenticated){
             loadFlats();
             loadVehicles();
+            loadMaintenances();
         }
 
         return () => {
             resetFlats();
             resetVehicles();
+            resetMaintenances();
         }
-    }, [isAuthenticated, loadFlats, resetFlats, loadVehicles, resetVehicles]);
+    }, [isAuthenticated, loadFlats, resetFlats, loadVehicles, resetVehicles, loadMaintenances, resetMaintenances]);
 
     return isAuthenticated ? (
         <div

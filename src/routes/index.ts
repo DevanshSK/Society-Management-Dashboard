@@ -5,6 +5,7 @@ import AuthLayout from '../components/layout/AuthLayout';
 import DashboardLayout from '../components/layout/DashboardLayout';
 import FlatPage from '../pages/flats/FlatPage';
 import VehiclePage from '../pages/vehicles/VehiclePage';
+import MaintainencePage from '../pages/maintainence/MaintainencePage';
 
 const router = createBrowserRouter([
     {
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
             { index: true, Component: Home },
             { path: "flats", Component: FlatPage },
             { path: "vehicles", Component: VehiclePage },
-            { path: "maintainence", Component: Home },
+            { path: "maintainence", Component: MaintainencePage },
         ]
     },
     {

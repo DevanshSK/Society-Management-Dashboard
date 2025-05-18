@@ -124,7 +124,7 @@ const AddVehicleDrawer = () => {
                     <Form.Item
                         label="Owner's Flat"
                         name="flatId"
-                        rules={[{ required: true, message: 'Please select the vehicle type!' }]}
+                        rules={[{ required: true, message: 'Please select the owner flat!' }]}
                     >
                         <Select 
                             placeholder="Select Owner's Flat"
