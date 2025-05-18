@@ -58,13 +58,14 @@ const FlatTable = () => {
             key: "type",
             sorter: (a, b) => a.type.localeCompare(b.type),
             render: (type) => {
-                let color = "yellow";
+                let color = "purple";
 
                 if (type === "2BHK") {
                     color = "blue";
                 }
                 if (type === "3BHK") {
-                    color = "green";
+                    color = "magenta";
+                    // color = "green";
                 }
 
                 return (<Tag color={color} className="rounded-full">
@@ -88,10 +89,14 @@ const FlatTable = () => {
             dataIndex: "ownerName",
             key: "ownerName",
             sorter: (a, b) => (a.ownerName || "").localeCompare(b.ownerName || ""),
-            render: (value) => {
-                return (
+            render: (value, flat) => {
+                return flat.occupied ? (
                     <span>{value || "---"}</span>
-                )
+                ) : (
+                    <Tag color={'blue'}>
+                        Vacant
+                    </Tag>
+                );
             }
         },
         {
@@ -99,9 +104,9 @@ const FlatTable = () => {
             render: (_, flat) => {
                 return (
                     <div className="flex items-center gap-2">
-                        <Button 
-                            size="small" 
-                            color="orange" 
+                        <Button
+                            size="small"
+                            color="orange"
                             variant="outlined"
                             onClick={() => {
                                 setEditingFlat(flat);
@@ -110,10 +115,10 @@ const FlatTable = () => {
                         >
                             Edit
                         </Button>
-                        <Button 
-                            size="small" 
-                            color="danger" 
-                            variant="outlined" 
+                        <Button
+                            size="small"
+                            color="danger"
+                            variant="outlined"
                             onClick={() => {
                                 Modal.confirm({
                                     title: `Delete Flat ${flat.flatNo}`,
@@ -143,7 +148,7 @@ const FlatTable = () => {
                 <div className="flex items-center w-full gap-4">
                     <Input
                         allowClear
-                        placeholder="Flat No or Owner Name"
+                        placeholder="Flat No / Owner Name"
                         prefix={<SearchOutlined />}
                         onChange={handleSearchChange}
                         className="w-full md:w-1/3 flex-1"
@@ -184,11 +189,10 @@ const FlatTable = () => {
             <Table
                 columns={columns}
                 dataSource={filteredData}
-                // dataSource={flats}
                 pagination={{ pageSize: 6 }}
                 scroll={{ x: 'max-content' }}
                 rowKey="id"
-                virtual
+            // virtual
             />
         </div>
     )

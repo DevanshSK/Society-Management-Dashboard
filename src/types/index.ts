@@ -17,6 +17,11 @@ export interface Vehicle{
     type: VehicleType;
 }
 
+export interface MergedVehicle extends Vehicle {
+    flatNo: string | null;
+    ownerName: string | null;
+}
+
 export interface MaintainenceTransaction{
     id: string;
     flatId: string;

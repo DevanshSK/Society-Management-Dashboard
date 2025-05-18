@@ -4,6 +4,7 @@ import Login from '../pages/auth/Login';
 import AuthLayout from '../components/layout/AuthLayout';
 import DashboardLayout from '../components/layout/DashboardLayout';
 import FlatPage from '../pages/flats/FlatPage';
+import VehiclePage from '../pages/vehicles/VehiclePage';
 
 const router = createBrowserRouter([
     {
@@ -12,6 +13,8 @@ const router = createBrowserRouter([
         children: [
             { index: true, Component: Home },
             { path: "flats", Component: FlatPage },
+            { path: "vehicles", Component: VehiclePage },
+            { path: "maintainence", Component: Home },
         ]
     },
     {

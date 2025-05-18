@@ -4,20 +4,24 @@ import Sidebar from "../dashboard/sidebar/Sidebar";
 import Navbar from "../dashboard/navbar/Navbar";
 import useFlatStore from "../../store/useFlatStore";
 import { useEffect } from "react";
+import useVehicleStore from "../../store/useVehicleStore";
 
 const DashboardLayout = () => {
     const { isAuthenticated } = useAuthStore();
     const { loadFlats, resetFlats } = useFlatStore();
+    const {loadVehicles, resetVehicles} = useVehicleStore();
 
     useEffect(() => {
         if(isAuthenticated){
             loadFlats();
+            loadVehicles();
         }
 
         return () => {
-            resetFlats()
+            resetFlats();
+            resetVehicles();
         }
-    }, [isAuthenticated, loadFlats, resetFlats]);
+    }, [isAuthenticated, loadFlats, resetFlats, loadVehicles, resetVehicles]);
 
     return isAuthenticated ? (
         <div
