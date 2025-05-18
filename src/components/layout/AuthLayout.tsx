@@ -11,7 +11,8 @@ const AuthLayout = () => {
         <div
             className="h-screen flex w-full justify-center bg-neutral-50"
         >
-            <div className="w-[600px] ld:w-full flex flex-col  items-start p-6">
+            <div className="w-[600px] ld:w-full flex flex-col items-start p-6">
+                <span className="text-xl font-bold text-blue-800">Society Portal</span>
                 <Outlet />
             </div>
             <div className="hidden lg:flex flex-1 w-full max-h-full relative bg-cream flex-col">

@@ -18,7 +18,7 @@ const Sidebar = () => {
         >
             <div className="p-6 py-4 border-b border-gray-300">
                 <Link to="/">
-                    <span className="text-xl font-bold text-blue-800">ADMIN PORTAL</span>
+                    <span className="text-xl font-bold text-blue-800">Society Portal</span>
                 </Link>
             </div>
 
